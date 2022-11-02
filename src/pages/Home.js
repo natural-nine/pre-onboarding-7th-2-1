@@ -1,18 +1,29 @@
 import React, { useEffect } from "react";
-import instance from "../shared/axios";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+import Option from "../components/Option";
+import { loadCarDB } from "../redux/modules/carsSlice";
 
 const Home = () => {
-  const getCars = () => {
-    instance.get().then(res => console.log(res.data));
-  };
+  const dispatch = useDispatch();
+  const menuList = useSelector(state => state.loadMenu.menuState);
   useEffect(() => {
-    getCars();
+    const getCarsList = async () => {
+      await dispatch(loadCarDB());
+    };
+    getCarsList();
   }, []);
   return (
-    <>
-      <h1>hello</h1>
-    </>
+    <Wrap>
+      <Option dispatch={dispatch} menuList={menuList} />
+      {/* <Spinner /> */}
+    </Wrap>
   );
 };
+
+const Wrap = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 export default Home;
