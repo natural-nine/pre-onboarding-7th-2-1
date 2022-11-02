@@ -8,20 +8,25 @@ const initialState = {
   failure: false,
 };
 
-export const loadCarDB = (fuel, seg, type) => {
+export const loadCarDB = (seg, fuel) => {
   return async function (dispatch) {
     await instance
       .get("/cars", {
         params: {
-          fuelType: fuel,
           segment: seg,
-          type: "goo",
+          fuelType: fuel,
         },
       })
       .then(res => {
-        console.log(res.data.payload);
+        console.log(res.data);
         dispatch(loadCar(res.data.payload));
       });
+  };
+};
+
+export const resetCarDB = () => {
+  return function (dispatch) {
+    dispatch(resetCar());
   };
 };
 
@@ -34,9 +39,15 @@ const carsSlice = createSlice({
       state.loading = false;
       state.success = true;
     },
+    resetCar: (state, action) => {
+      state.loading = true;
+      state.carsList = [];
+      state.success = false;
+      state.failure = false;
+    },
   },
 });
 
-export const { loadCar } = carsSlice.actions;
+export const { loadCar, resetCar } = carsSlice.actions;
 
 export default carsSlice.reducer;

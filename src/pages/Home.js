@@ -1,21 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import AutomobileList from "../components/AutomobileList";
 import Option from "../components/Option";
-import { loadCarDB } from "../redux/modules/carsSlice";
+import { loadCarDB, resetCarDB } from "../redux/modules/carsSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const [isSegment, setIsSegment] = useState("");
   const menuList = useSelector(state => state.loadMenu.menuState);
+  const carList = useSelector(state => state.loadCar.carsList);
   useEffect(() => {
-    const getCarsList = async () => {
-      await dispatch(loadCarDB());
+    dispatch(resetCarDB());
+    const getCarsList = async isSegment => {
+      await dispatch(loadCarDB(isSegment));
     };
-    getCarsList();
-  }, []);
+    getCarsList(isSegment);
+  }, [isSegment]);
+  console.log(carList);
   return (
     <Wrap>
-      <Option dispatch={dispatch} menuList={menuList} />
+      <Option
+        dispatch={dispatch}
+        menuList={menuList}
+        setIsSegment={setIsSegment}
+      />
+      <AutomobileList carList={carList} menuList={menuList} />
       {/* <Spinner /> */}
     </Wrap>
   );
