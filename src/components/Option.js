@@ -3,15 +3,21 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { setIsMenu } from "../redux/modules/menuSlice";
 
-const Option = ({ dispatch, menuList }) => {
-  const menuToggleClick = id => {
+const Option = ({ dispatch, menuList, setIsSegment }) => {
+  const menuToggleClick = (id, value) => {
     dispatch(setIsMenu(id));
+    setIsSegment(value);
   };
-  console.log(menuList);
   return (
     <Wrap>
       {menuList.map((i, idx) => (
-        <OptionBox onClick={() => menuToggleClick(i.id)}>{i.title}</OptionBox>
+        <OptionBox
+          key={i.id}
+          props={i.isMenu}
+          onClick={() => menuToggleClick(i.id, i.value)}
+        >
+          <p> {i.title}</p>
+        </OptionBox>
       ))}
     </Wrap>
   );
@@ -25,6 +31,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  /* text-decoration: ${props => props.props && "line-through"}; */
 `;
 
 const OptionBox = styled.div`
@@ -38,7 +45,10 @@ const OptionBox = styled.div`
   align-items: center;
   p {
     font-size: 1.1rem;
+    color: ${props => props.props && "white"};
   }
+  background-color: ${props => props.props && "black"};
+  cursor: pointer;
 `;
 
 export default Option;

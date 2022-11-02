@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   menuState: [
-    { title: "전체", isMenu: true, id: 0 },
-    { title: "대형", isMenu: false, id: 1 },
-    { title: "중형", isMenu: false, id: 2 },
-    { title: "소형", isMenu: false, id: 3 },
+    { title: "전체", value: "", isMenu: true, id: 0 },
+    { title: "대형", value: "E", isMenu: false, id: 1 },
+    { title: "중형", value: "D", isMenu: false, id: 2 },
+    { title: "소형", value: "C", isMenu: false, id: 3 },
   ],
 };
 
