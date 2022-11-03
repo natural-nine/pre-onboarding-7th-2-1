@@ -5,10 +5,7 @@ import styled from "styled-components";
 const Header = () => {
   const location = useLocation();
   return (
-    <Wrap>
-      {location.pathname === "/" ? <p>전체차량</p> : <p>상세차량</p>}
-      {/* <p>전체차량</p> */}
-    </Wrap>
+    <Wrap>{location.pathname === "/" ? <p>전체차량</p> : <p>상세차량</p>}</Wrap>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { resetCarDB } from "../redux/modules/carsSlice";
 import { setIsMenu } from "../redux/modules/menuSlice";
 
 const Option = ({ dispatch, menuList, setIsSegment }) => {
@@ -8,6 +9,7 @@ const Option = ({ dispatch, menuList, setIsSegment }) => {
     dispatch(setIsMenu(id));
     setIsSegment(value);
   };
+  console.log(menuList);
   return (
     <Wrap>
       {menuList.map((i, idx) => (
