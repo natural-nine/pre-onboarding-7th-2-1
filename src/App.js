@@ -42,7 +42,9 @@ const MainBox = styled.div`
   background-color: #fff;
   position: relative;
   z-index: 2;
-  height: 100%;
+  /* height: 100%; */
+  height: auto;
+  overflow-y: scroll;
   min-height: 100vh;
   width: 100%;
   @media screen and (min-width: 450px) {
