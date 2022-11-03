@@ -1,12 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const AutomobileList = ({ carList, menuList }) => {
-  console.log(carList);
+  const navagate = useNavigate();
+  console.log(carList.carsList);
+  const detailClick = car => {
+    navagate("/detail", {
+      state: car,
+    });
+  };
   return (
     <>
-      {carList?.map((i, idx) => (
-        <CarBox key={i.id}>
+      {carList.carsList.map((i, idx) => (
+        <CarBox
+          onClick={() => {
+            detailClick(i);
+          }}
+          key={i.id}
+        >
           <DesBox>
             <div>
               <p>{i.attribute.brand}</p>
@@ -16,10 +28,12 @@ const AutomobileList = ({ carList, menuList }) => {
               <span>
                 {i.attribute.segment} / {i.attribute.fuelType}
               </span>
-              <span></span>
+              <span>월 {i.amount.toLocaleString()} 원 부터</span>
             </div>
           </DesBox>
-          <ImgBox></ImgBox>
+          <ImgBox>
+            <img src={i.attribute.imageUrl} />
+          </ImgBox>
         </CarBox>
       ))}
     </>
@@ -28,9 +42,9 @@ const AutomobileList = ({ carList, menuList }) => {
 
 const CarBox = styled.div`
   width: 100%;
-  height: 120px;
+  height: 125px;
   padding: 20px;
-  border: 1px solid red;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,20 +53,31 @@ const CarBox = styled.div`
 const DesBox = styled.div`
   width: 38%;
   height: 100%;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* align-items: center; */
   div:first-child {
     margin-bottom: 10px;
+    p {
+      font-weight: 700;
+    }
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: 0.9rem;
+    }
   }
 `;
 
 const ImgBox = styled.div`
   width: 38%;
   height: 100%;
-  border: 1px solid red;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export default AutomobileList;

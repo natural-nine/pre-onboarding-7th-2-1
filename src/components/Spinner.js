@@ -12,13 +12,11 @@ const Spinner = () => {
 
 const Box = styled.div`
   width: 100%;
-  /* height: 150px; */
   margin-top: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid red;
   p {
     margin-top: 30px;
     font-weight: 700;
