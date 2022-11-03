@@ -14,8 +14,8 @@ const Home = () => {
   const carList = useSelector(state => state.loadCar);
   useEffect(() => {
     dispatch(resetCarDB());
-    const getCarsList = async isSegment => {
-      await dispatch(loadCarDB(isSegment));
+    const getCarsList = isSegment => {
+      dispatch(loadCarDB(isSegment));
     };
     getCarsList(isSegment);
   }, [isSegment]);
@@ -43,7 +43,9 @@ const Home = () => {
 
 const Wrap = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 export default Home;

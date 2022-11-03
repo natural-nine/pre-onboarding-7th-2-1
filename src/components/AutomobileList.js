@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { fuelChange, segmentChange } from "../shared/shared";
 
 const AutomobileList = ({ carList, menuList }) => {
   const navagate = useNavigate();
@@ -26,7 +27,8 @@ const AutomobileList = ({ carList, menuList }) => {
             </div>
             <div>
               <span>
-                {i.attribute.segment} / {i.attribute.fuelType}
+                {segmentChange(i.attribute.segment)} /{" "}
+                {fuelChange(i.attribute.fuelType)}
               </span>
               <span>월 {i.amount.toLocaleString()} 원 부터</span>
             </div>
