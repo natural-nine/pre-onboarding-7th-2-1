@@ -26,7 +26,7 @@ const AutomobileList = ({ carList, detailClick }) => {
             </div>
           </DesBox>
           <ImgBox>
-            <img src={i.attribute.imageUrl} />
+            <img src={i.attribute.imageUrl} alt="carImage" />
           </ImgBox>
         </CarBox>
       ))}
@@ -54,13 +54,14 @@ const DesBox = styled.div`
     margin-bottom: 10px;
     p {
       font-weight: 700;
+      font-size: 1.7rem;
     }
   }
   div {
     display: flex;
     flex-direction: column;
     span {
-      font-size: 0.9rem;
+      font-size: 1.4rem;
     }
   }
 `;

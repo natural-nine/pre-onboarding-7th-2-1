@@ -22,6 +22,7 @@ const Home = () => {
     };
     getCarsList(isSegment);
   }, [isSegment]);
+  console.log(isSegment);
   const menuToggleClick = (id, value) => {
     dispatch(setIsMenu(id));
     dispatch(setIsSegment(value));
@@ -41,7 +42,7 @@ const Home = () => {
       {carList.loading ? (
         <Spinner />
       ) : (
-        <>
+        <React.Fragment>
           {carList.carsList.length === 0 ? (
             <NoAutomobile />
           ) : (
@@ -51,7 +52,7 @@ const Home = () => {
               detailClick={detailClick}
             />
           )}
-        </>
+        </React.Fragment>
       )}
     </Wrap>
   );

@@ -42,19 +42,18 @@ const MainBox = styled.div`
   background-color: #fff;
   position: relative;
   z-index: 2;
-  /* height: 100%; */
   height: auto;
   overflow-y: scroll;
   min-height: 100vh;
   width: 100%;
-  @media screen and (min-width: 450px) {
+  @media screen and (min-width: 280px) {
     width: 450px;
     margin: auto;
     min-height: 100vh;
     height: 100%;
     box-shadow: var(--SHADOW2);
   }
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 450px) {
     width: 100%;
     margin: auto;
     min-height: 100vh;

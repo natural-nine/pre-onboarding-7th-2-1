@@ -40,7 +40,7 @@ const AutomobileDetail = ({ carDetail }) => {
         </DesBox>
       ))}
       {carDetail.additionalProducts.length === 0 ? (
-        <></>
+        <React.Fragment />
       ) : (
         <>
           <EtcBox>
@@ -73,6 +73,7 @@ const TitleBox = styled.div`
   padding: 20px;
   p {
     font-weight: 700;
+    font-size: 2rem;
   }
 `;
 
@@ -83,6 +84,9 @@ const PriceBox = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  span {
+    font-size: 1.7rem;
+  }
 `;
 
 const EtcBox = styled.div`
@@ -95,6 +99,8 @@ const EtcBox = styled.div`
   align-items: center;
   span {
     color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 `;
 
@@ -105,6 +111,13 @@ const DesBox = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
+  p {
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  span {
+    font-size: 1.3rem;
+  }
 `;
 
 export default AutomobileDetail;

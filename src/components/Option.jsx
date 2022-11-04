@@ -38,7 +38,7 @@ const OptionBox = styled.div`
   justify-content: center;
   align-items: center;
   p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: ${props => props.props && "white"};
   }
   background-color: ${props => props.props && "black"};
