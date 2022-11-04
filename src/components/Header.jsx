@@ -38,6 +38,7 @@ const Wrap = styled.div`
 
   p {
     font-weight: 700;
+    font-size: 1.8rem;
   }
   img {
     position: absolute;

@@ -21,5 +21,6 @@ const Box = styled.div`
   p {
     margin-top: 30px;
     font-weight: 700;
+    font-size: 2.1rem;
   }
 `;
