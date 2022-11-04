@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AutomobileList from "../components/AutomobileList";
 import NoAutomobile from "../components/NoAutomoblie";
 import Option from "../components/Option";
 import Spinner from "../components/Spinner";
 import { loadCarDB, resetCarDB } from "../redux/modules/carsSlice";
+import { setIsMenu, setIsSegment } from "../redux/modules/menuSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const [isSegment, setIsSegment] = useState("");
+  const navagate = useNavigate();
   const menuList = useSelector(state => state.loadMenu.menuState);
   const carList = useSelector(state => state.loadCar);
+  const isSegment = useSelector(state => state.loadMenu.isSegment);
   useEffect(() => {
     dispatch(resetCarDB());
     const getCarsList = isSegment => {
@@ -19,24 +22,37 @@ const Home = () => {
     };
     getCarsList(isSegment);
   }, [isSegment]);
-  console.log(carList);
+  const menuToggleClick = (id, value) => {
+    dispatch(setIsMenu(id));
+    dispatch(setIsSegment(value));
+  };
+  const detailClick = car => {
+    navagate("/detail", {
+      state: car,
+    });
+  };
   return (
     <Wrap>
       <Option
         dispatch={dispatch}
         menuList={menuList}
-        setIsSegment={setIsSegment}
+        menuToggleClick={menuToggleClick}
       />
-      {!carList.loading && (
+      {carList.loading ? (
+        <Spinner />
+      ) : (
         <>
           {carList.carsList.length === 0 ? (
             <NoAutomobile />
           ) : (
-            <AutomobileList carList={carList} menuList={menuList} />
+            <AutomobileList
+              carList={carList}
+              menuList={menuList}
+              detailClick={detailClick}
+            />
           )}
         </>
       )}
-      {carList.loading && <Spinner />}
     </Wrap>
   );
 };

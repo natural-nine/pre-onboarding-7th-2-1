@@ -1,18 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { resetCarDB } from "../redux/modules/carsSlice";
-import { setIsMenu } from "../redux/modules/menuSlice";
 
-const Option = ({ dispatch, menuList, setIsSegment }) => {
-  const menuToggleClick = (id, value) => {
-    dispatch(setIsMenu(id));
-    setIsSegment(value);
-  };
-  console.log(menuList);
+const Option = ({ menuList, menuToggleClick }) => {
   return (
     <Wrap>
-      {menuList.map((i, idx) => (
+      {menuList.map(i => (
         <OptionBox
           key={i.id}
           props={i.isMenu}

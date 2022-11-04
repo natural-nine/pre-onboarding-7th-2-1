@@ -1,19 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { fuelChange, segmentChange } from "../shared/shared";
 
-const AutomobileList = ({ carList, menuList }) => {
-  const navagate = useNavigate();
-  console.log(carList.carsList);
-  const detailClick = car => {
-    navagate("/detail", {
-      state: car,
-    });
-  };
+const AutomobileList = ({ carList, detailClick }) => {
   return (
     <>
-      {carList.carsList.map((i, idx) => (
+      {carList.carsList.map(i => (
         <CarBox
           onClick={() => {
             detailClick(i);

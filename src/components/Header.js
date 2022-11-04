@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import backIcon from "../assets/ICON_Back.png";
 
@@ -17,6 +17,7 @@ const Header = () => {
               nagigate(-1);
             }}
             src={backIcon}
+            alt="icon"
           />
           <p>차량상세</p>
         </>
