@@ -18,7 +18,6 @@ export const loadCarDB = (seg, fuel) => {
         },
       })
       .then(res => {
-        console.log(res.data);
         dispatch(loadCar(res.data.payload));
       });
   };

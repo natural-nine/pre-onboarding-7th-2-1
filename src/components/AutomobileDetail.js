@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { dateChange, fuelChange, segmentChange } from "../shared/shared";
 
 const AutomobileDetail = ({ carDetail }) => {
-  console.log(carDetail.additionalProducts.length);
   return (
     <>
       <ImgBox>
-        <img src={carDetail.attribute.imageUrl} />
+        <img src={carDetail.attribute.imageUrl} alt="carImage" />
       </ImgBox>
       <TitleBox>
         <p>{carDetail.attribute.brand}</p>
@@ -35,7 +34,7 @@ const AutomobileDetail = ({ carDetail }) => {
         <span>보험</span>
       </EtcBox>
       {carDetail.insurance.map((i, idx) => (
-        <DesBox>
+        <DesBox key={idx}>
           <p>{i.name}</p>
           <span>{i.description}</span>
         </DesBox>
@@ -48,7 +47,7 @@ const AutomobileDetail = ({ carDetail }) => {
             <span>추가상품</span>
           </EtcBox>
           {carDetail.additionalProducts.map((i, idx) => (
-            <DesBox>
+            <DesBox key={idx}>
               <p>{i.name}</p>
               <span>월 {i.amount.toLocaleString()} 원</span>
             </DesBox>
