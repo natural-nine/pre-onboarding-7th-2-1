@@ -7,7 +7,7 @@ const Detail = () => {
   const location = useLocation();
   return (
     <Wrap>
-      <AutomobileDetail carDetail={location.state} />
+      <AutomobileDetail carDetail={location?.state} />
     </Wrap>
   );
 };

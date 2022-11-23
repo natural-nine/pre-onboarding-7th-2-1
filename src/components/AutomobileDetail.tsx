@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { dateChange, fuelChange, segmentChange } from "../shared/shared";
+import { CarDetailTypes } from "../types/carTypes";
 
-const AutomobileDetail = ({ carDetail }) => {
+const AutomobileDetail = ({ carDetail }: { carDetail: CarDetailTypes }) => {
   return (
     <>
       <ImgBox>
@@ -39,14 +40,14 @@ const AutomobileDetail = ({ carDetail }) => {
           <span>{i.description}</span>
         </DesBox>
       ))}
-      {carDetail.additionalProducts.length === 0 ? (
+      {carDetail.additionalProducts?.length === 0 ? (
         <React.Fragment />
       ) : (
         <>
           <EtcBox>
             <span>추가상품</span>
           </EtcBox>
-          {carDetail.additionalProducts.map((i, idx) => (
+          {carDetail.additionalProducts?.map((i, idx) => (
             <DesBox key={idx}>
               <p>{i.name}</p>
               <span>월 {i.amount.toLocaleString()} 원</span>
