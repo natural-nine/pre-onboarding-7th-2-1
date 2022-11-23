@@ -1,11 +1,11 @@
-import React from "react";
 import styled from "styled-components";
 import { fuelChange, segmentChange } from "../shared/shared";
+import { CarListTypes } from "../types/carTypes";
 
-const AutomobileList = ({ carList, detailClick }) => {
+const AutomobileList = ({ carsList, detailClick }: CarListTypes) => {
   return (
     <>
-      {carList.carsList.map(i => (
+      {carsList.map(i => (
         <CarBox
           onClick={() => {
             detailClick(i);

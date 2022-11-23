@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { menuStateTypes } from "../../types/menuTypes";
 
-const initialState = {
+const initialState: menuStateTypes = {
   menuState: [
     { title: "전체", value: "", isMenu: true, id: 0 },
     { title: "대형", value: "E", isMenu: false, id: 1 },
@@ -10,14 +11,14 @@ const initialState = {
   isSegment: "",
 };
 
-export const setIsMenu = id => {
-  return function (dispatch) {
-    dispatch(loadMenu(id));
+export const setIsMenu = (id: number) => {
+  return function (action: any) {
+    action(loadMenu(id));
   };
 };
 
-export const setIsSegment = seg => {
-  return function (dispatch) {
+export const setIsSegment = (seg: string) => {
+  return function (dispatch: any) {
     dispatch(loadSegment(seg));
   };
 };

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import instance from "../../shared/axios";
 
 const initialState = {
@@ -8,13 +8,12 @@ const initialState = {
   failure: false,
 };
 
-export const loadCarDB = (seg, fuel) => {
-  return async function (dispatch) {
+export const loadCarDB = (seg: string) => {
+  return async function (dispatch: any) {
     await instance
       .get("/cars", {
         params: {
           segment: seg,
-          fuelType: fuel,
         },
       })
       .then(res => {
@@ -24,7 +23,7 @@ export const loadCarDB = (seg, fuel) => {
 };
 
 export const resetCarDB = () => {
-  return function (dispatch) {
+  return function (dispatch: any) {
     dispatch(resetCar());
   };
 };
@@ -38,7 +37,7 @@ const carsSlice = createSlice({
       state.loading = false;
       state.success = true;
     },
-    resetCar: (state, action) => {
+    resetCar: state => {
       state.loading = true;
       state.carsList = [];
       state.success = false;

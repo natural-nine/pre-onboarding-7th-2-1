@@ -1,4 +1,4 @@
-export const dateChange = created_at => {
+export const dateChange = (created_at: string) => {
   const week = ["일", "월", "화", "수", "목", "금", "토"];
   const date = new Date(created_at);
   const year = date.getFullYear();
@@ -8,7 +8,7 @@ export const dateChange = created_at => {
   return ` ${month}월 ${day}일 (${dayOfWeek}) 부터`;
 };
 
-export const segmentChange = seg => {
+export const segmentChange = (seg: string) => {
   let segment = "";
   if (seg === "C") {
     segment = "소형";
@@ -20,7 +20,7 @@ export const segmentChange = seg => {
   return segment;
 };
 
-export const fuelChange = fuel => {
+export const fuelChange = (fuel: string) => {
   let fuelType = "";
   if (fuel === "gasoline") {
     fuelType = "가솔린";

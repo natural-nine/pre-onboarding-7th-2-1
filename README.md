@@ -1,6 +1,6 @@
 # 기술 스택
 
-<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react"> <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"> <img src="https://img.shields.io/badge/axios-FFCA28?style=for-the-badge&logo=axios&logoColor=white"> <img src="https://img.shields.io/badge/react_router_dom-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white"><img src="https://img.shields.io/badge/redux-8e44ad?style=for-the-badge&logo=redux&logoColor=white"><img src="https://img.shields.io/badge/redux_toolkit-8e44ad?style=for-the-badge&logo=redux&logoColor=white">
+<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/typescript-3498db?style=for-the-badge&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react"> <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"> <img src="https://img.shields.io/badge/axios-FFCA28?style=for-the-badge&logo=axios&logoColor=white"> <img src="https://img.shields.io/badge/react_router_dom-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white"><img src="https://img.shields.io/badge/redux-8e44ad?style=for-the-badge&logo=redux&logoColor=white"><img src="https://img.shields.io/badge/redux_toolkit-8e44ad?style=for-the-badge&logo=redux&logoColor=white">
 
 # 주요 기능
 
@@ -19,12 +19,10 @@
    - `option` 클릭 시 해당 `option` 의 리스트를 렌더링 합니다.
    - 현재 `option` 값에 같은 값의 `option` 클릭 시 리스트를 불러오지 않습니다.
 
-  
- 
 2. `detail` 상세 페이지
    - `navigate` 의 `state` 를 활용하여 해당 리스트를 저장하고 렌더링합니다.
    - 뒤로가기 클릭 시 기존 `option` 리스트를 렌더링 합니다.
-   
+
 ---
 
-모든 `state` 는 전역으로 `redux`로 관리, `width` 450px ~ 280px(갤럭시 폴드) 반응형. 
+모든 `state` 는 전역으로 `redux`로 관리, `width` 450px ~ 280px(갤럭시 폴드) 반응형.

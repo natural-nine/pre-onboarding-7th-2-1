@@ -1,44 +1,40 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AutomobileList from "../components/AutomobileList";
 import NoAutomobile from "../components/NoAutomoblie";
 import Option from "../components/Option";
 import Spinner from "../components/Spinner";
+import { useAppDispatch, useAppSelector } from "../redux/reduxHooks";
 import { loadCarDB, resetCarDB } from "../redux/modules/carsSlice";
 import { setIsMenu, setIsSegment } from "../redux/modules/menuSlice";
+import { CarDetailTypes } from "../types/carTypes";
 
 const Home = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navagate = useNavigate();
-  const menuList = useSelector(state => state.loadMenu.menuState);
-  const carList = useSelector(state => state.loadCar);
-  const isSegment = useSelector(state => state.loadMenu.isSegment);
+  const menuList = useAppSelector(state => state.loadMenu.menuState);
+  const carList = useAppSelector(state => state.loadCar);
+  const isSegment = useAppSelector(state => state.loadMenu.isSegment);
   useEffect(() => {
     dispatch(resetCarDB());
-    const getCarsList = isSegment => {
+    const getCarsList = (isSegment: string) => {
       dispatch(loadCarDB(isSegment));
     };
     getCarsList(isSegment);
   }, [isSegment]);
-  console.log(isSegment);
-  const menuToggleClick = (id, value) => {
+  const menuToggleClick = (id: number, value: string) => {
     dispatch(setIsMenu(id));
     dispatch(setIsSegment(value));
   };
-  const detailClick = car => {
+  const detailClick = (car: CarDetailTypes) => {
     navagate("/detail", {
       state: car,
     });
   };
   return (
     <Wrap>
-      <Option
-        dispatch={dispatch}
-        menuList={menuList}
-        menuToggleClick={menuToggleClick}
-      />
+      <Option menuList={menuList} menuToggleClick={menuToggleClick} />
       {carList.loading ? (
         <Spinner />
       ) : (
@@ -47,8 +43,7 @@ const Home = () => {
             <NoAutomobile />
           ) : (
             <AutomobileList
-              carList={carList}
-              menuList={menuList}
+              carsList={carList.carsList}
               detailClick={detailClick}
             />
           )}

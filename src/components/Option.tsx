@@ -1,7 +1,7 @@
-import React from "react";
 import styled from "styled-components";
+import { OptionsTypes } from "../types/menuTypes";
 
-const Option = ({ menuList, menuToggleClick }) => {
+const Option = ({ menuList, menuToggleClick }: OptionsTypes) => {
   return (
     <Wrap>
       {menuList.map(i => (
@@ -25,10 +25,9 @@ const Wrap = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* text-decoration: ${props => props.props && "line-through"}; */
 `;
 
-const OptionBox = styled.div`
+const OptionBox = styled.div<{ props: boolean }>`
   width: 17%;
   height: 27px;
   border-radius: 62px;
